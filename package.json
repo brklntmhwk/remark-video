@@ -19,10 +19,10 @@
   "keywords": [
     "remark",
     "remark-plugin",
-    "card",
-    "cardgrid",
-    "markdown",
-    "html"
+    "video",
+    "html",
+    "html5",
+    "markdown"
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
@@ -41,6 +41,7 @@
     "ignoreCatch": true
   },
   "dependencies": {
+    "bun": "^1.1.34",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
   },
