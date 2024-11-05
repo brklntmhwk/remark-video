@@ -166,21 +166,6 @@ export default defineConfig({
 })
 ```
 
-### How it works
-
-Some key takeaways are:
-
-- `publicDir`
-- Both `card` and `card-grid` take common & custom HTML attributes
-  - their styles are customizable by providing user-defined CSS class(es)
-    - e.g., `border`, `background-color`, etc.
-- The default values of this plugin's options:
-  - `customHTMLTags.enabled`: `false`
-  - `imageContainerClass`: "image-container"
-  - `contentContainerClass`: "content-container"
-  - `cardGridClass`: `undefined`
-  - `cardClass`: `undefined`
-
 ## Feature(s) pending to be added
 
 Nothing special.
