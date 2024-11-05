@@ -72,10 +72,10 @@ const parseMarkdown = async (markdown: string) => {
   return output;
 }
 
-const input_1 = `::video{src=\/videos\/sample-video.mp4}`;
+const input_1 = "::video{src=/videos/sample-video.mp4}";
 const input_2 = `
 :::video
-${BASE_URL}\\videos\\sample-video.mp4
+/videos/sample-video.mp4
 :::
 `;
 
