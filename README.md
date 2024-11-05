@@ -72,10 +72,10 @@ const parseMarkdown = async (markdown: string) => {
   return output;
 }
 
-const input_1 = "::video{src=/videos/sample-video.mp4}";
+const input_1 = "::video{src=/videos/sample-video-1.mp4}";
 const input_2 = `
 :::video
-/videos/sample-video.mp4
+/videos/sample-video-1.mp4
 :::
 `;
 
@@ -91,7 +91,7 @@ Yields: (Both the `html_1` and `html_2` yields the same output)
 ```html
 <div>
   <video controls preload="metadata">
-    <source src="${BASE_URL}\\videos\\sample-video.mp4" type="video/mp4">
+    <source src="${BASE_URL}\\videos\\sample-video-1.mp4" type="video/mp4">
   </video>
 </div>
 ```
@@ -119,14 +119,14 @@ For more possible patterns and in-depths explanations on the generic syntax(e.g.
 For example, the following Markdown content:
 
 ```markdown
-::video{src=/videos/sample-video.mp4}
+::video{src=/videos/sample-video-1.mp4}
 ```
 
 Or
 
 ```markdown
 :::video
-/videos/sample-video.mp4
+/videos/sample-video-1.mp4
 :::
 ```
 
@@ -135,7 +135,7 @@ Yields:
 ```html
 <div>
   <video controls preload="metadata">
-    <source src="/videos/sample-video.mp4" type="video/mp4">
+    <source src="/videos/sample-video-1.mp4" type="video/mp4">
   </video>
 </div>
 ```

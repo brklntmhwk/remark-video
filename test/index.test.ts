@@ -46,12 +46,12 @@ const parseMarkdown = mock(
 describe("Test the basic usage of video", () => {
 	const BASE_URL = "https:\\BASE_URL.com";
 
-	test("Double-colon ver. of video", async () => {
-		const input = "::video{src=/videos/sample-video.mp4}";
+	test("Double-colon & mp4-only ver. of video", async () => {
+		const input = "::video{src=/videos/sample-video-1.mp4}";
 		const output = `
     <div>
       <video controls preload="metadata">
-        <source src="${BASE_URL}/videos/sample-video.mp4" type="video/mp4">
+        <source src="${BASE_URL}/videos/sample-video-1.mp4" type="video/mp4">
       </video>
     </div>
     `;
@@ -64,16 +64,35 @@ describe("Test the basic usage of video", () => {
 		expect(normalizeHtml(html)).toBe(normalizeHtml(output));
 	});
 
-	test("Triple-colon ver. of video", async () => {
+	test("Triple-colon & mp4-only ver. of video", async () => {
 		const input = `
   :::video
-  /videos/sample-video.mp4
+  /videos/sample-video-1.mp4
   :::
     `;
 		const output = `
     <div>
       <video controls preload="metadata">
-        <source src="${BASE_URL}/videos/sample-video.mp4" type="video/mp4">
+        <source src="${BASE_URL}/videos/sample-video-1.mp4" type="video/mp4">
+      </video>
+    </div>
+    `;
+
+		const html = await parseMarkdown(input, {
+			baseUrl: BASE_URL,
+			publicDir: "../public",
+		});
+
+		expect(normalizeHtml(html)).toBe(normalizeHtml(output));
+	});
+
+	test("Double-colon & mp4-and-webm ver. of video", async () => {
+		const input = "::video{src=/videos/sample-video-2.mp4}";
+		const output = `
+    <div>
+      <video controls preload="metadata">
+        <source src="${BASE_URL}/videos/sample-video-2.webm" type="video/webm">
+        <source src="${BASE_URL}/videos/sample-video-2.mp4" type="video/mp4">
       </video>
     </div>
     `;
