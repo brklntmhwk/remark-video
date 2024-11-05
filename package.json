@@ -41,7 +41,6 @@
     "ignoreCatch": true
   },
   "dependencies": {
-    "bun": "^1.1.34",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
   },
