@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.7.0-beta.0 - 2024-11-05
 ### Added
-
 - add the `videoContainerTag` option
 
 ## 0.6.3-beta.0 - 2024-11-05
