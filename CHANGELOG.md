@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.6.2-beta.0 - 2024-11-05
 ### Changed
-
 - Add `bun` to dependencies
   - A "bun not imported" error occurred without it
 
