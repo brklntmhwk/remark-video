@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.6.3-beta.0 - 2024-11-05
 ### Changed
-
 - remove `bun`
 - replace `bun` with `node:url` as an import source of `fileURLToPath`
 
