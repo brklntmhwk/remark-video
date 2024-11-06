@@ -4,10 +4,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { ElementContent } from "hast";
-import type { Root } from "mdast";
+import type { PhrasingContent, Root } from "mdast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
-import { isContainerDirective, isLeafDirective, isParagraph } from "./utils.js";
+import {
+	isContainerDirective,
+	isLeafDirective,
+	isParagraph,
+	isText,
+} from "./utils.js";
 
 export type Config = {
 	baseUrl: string;
@@ -37,6 +42,12 @@ const remarkVideo: Plugin<[Config], Root> = (config) => {
 			if (node.name !== "video") return;
 			if (!node.attributes?.src || !node.attributes?.src.endsWith("mp4"))
 				return;
+
+			let title: string | undefined = undefined;
+
+			if (node.children.length > 0 && isText(node.children[0])) {
+				title = node.children[0].value;
+			}
 
 			const pathToMp4Video = path.join(
 				__dirname,
@@ -92,6 +103,7 @@ const remarkVideo: Plugin<[Config], Root> = (config) => {
 				hName: videoContainerTag,
 				hProperties: {
 					class: videoContainerClass || node.attributes?.class || undefined,
+					title: title,
 					dataRemarkVideoFigure: true,
 				},
 				hChildren: [
@@ -113,12 +125,26 @@ const remarkVideo: Plugin<[Config], Root> = (config) => {
 			if (node.name !== "video") return;
 			if (node.children.length === 0) return;
 
-			const firstNode = node.children[0];
+			const [firstNode, secondNode, ..._restNodes] = node.children;
 			if (!isParagraph(firstNode)) return;
 			if (firstNode.children.length === 0) return;
 
-			const url = firstNode.children[0];
-			if (url.type !== "text") return;
+			let title: string | undefined = undefined;
+			let url: PhrasingContent;
+
+			if (firstNode.data?.directiveLabel === true) {
+				if (firstNode.children.length > 0 && isText(firstNode.children[0])) {
+					title = firstNode.children[0].value;
+				}
+
+				if (!isParagraph(secondNode)) return;
+				if (secondNode.children.length === 0) return;
+				url = secondNode.children[0];
+			} else {
+				url = firstNode.children[0];
+			}
+
+			if (!isText(url)) return;
 			if (!url.value.endsWith("mp4")) return;
 
 			const pathToMp4Video = path.join(__dirname, publicDir, url.value);
@@ -172,6 +198,7 @@ const remarkVideo: Plugin<[Config], Root> = (config) => {
 				hProperties: {
 					...node.attributes,
 					class: videoContainerClass || node.attributes?.class || undefined,
+					title: title,
 					dataRemarkVideoFigure: true,
 				},
 				hChildren: [
