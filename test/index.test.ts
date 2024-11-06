@@ -50,7 +50,7 @@ describe("Test the basic usage of video", () => {
 		const input = "::video{src=/videos/sample-video-1.mp4}";
 		const output = `
     <div data-remark-video-figure>
-      <video controls preload="metadata">
+      <video controls preload="metadata" width="100%">
         <source src="${BASE_URL}/videos/sample-video-1.mp4" type="video/mp4">
       </video>
     </div>
@@ -72,7 +72,7 @@ describe("Test the basic usage of video", () => {
     `;
 		const output = `
     <div data-remark-video-figure>
-      <video controls preload="metadata">
+      <video controls preload="metadata" width="100%">
         <source src="${BASE_URL}/videos/sample-video-1.mp4" type="video/mp4">
       </video>
     </div>
@@ -90,7 +90,7 @@ describe("Test the basic usage of video", () => {
 		const input = "::video{src=/videos/sample-video-2.mp4}";
 		const output = `
     <div data-remark-video-figure>
-      <video controls preload="metadata">
+      <video controls preload="metadata" width="100%">
         <source src="${BASE_URL}/videos/sample-video-2.webm" type="video/webm">
         <source src="${BASE_URL}/videos/sample-video-2.mp4" type="video/mp4">
       </video>
@@ -109,7 +109,7 @@ describe("Test the basic usage of video", () => {
 		const input = "::video{src=/videos/sample-video-1.mp4}";
 		const output = `
     <div class="video-container" data-remark-video-figure>
-      <video controls preload="metadata">
+      <video controls preload="metadata" width="100%">
         <source src="${BASE_URL}/videos/sample-video-1.mp4" type="video/mp4">
       </video>
     </div>
@@ -128,7 +128,7 @@ describe("Test the basic usage of video", () => {
 		const input = "::video{src=/videos/sample-video-1.mp4}";
 		const output = `
     <figure data-remark-video-figure>
-      <video controls preload="metadata">
+      <video controls preload="metadata" width="100%">
         <source src="${BASE_URL}/videos/sample-video-1.mp4" type="video/mp4">
       </video>
     </figure>

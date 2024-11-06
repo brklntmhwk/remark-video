@@ -5,6 +5,8 @@ A remark plugin to parse video component(s).
 ## Features
 
 - Compatible with [the proposed generic syntax](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444/1) for custom directives/plugins in Markdown
+- Compatible with the HTML5 `video` and `source` tags combination
+  - covering the `mp4`, `webm`, and `ogg` video formats
 - Fully customizable styles
 - Written in TypeScript
 - ESM only
@@ -89,9 +91,9 @@ console.log(normalizeHtml(html_2));
 Yields: (Both the `html_1` and `html_2` yields the same output)
 
 ```html
-<div>
-  <video controls preload="metadata">
-    <source src="${BASE_URL}\\videos\\sample-video-1.mp4" type="video/mp4">
+<div data-remark-video-figure>
+  <video controls preload="metadata" width="100%">
+    <source src="/videos/sample-video-1.mp4" type="video/mp4">
   </video>
 </div>
 ```
@@ -104,6 +106,7 @@ export type Config = {
   publicDir: string; // A relative path to your public directory from the current working directory
   videoContainerTag?: string; // e.g., `div`, `figure`, etc. Defaults to `div`
   videoContainerClass?: string;
+  fallbackContent?: Readonly<ElementContent> | null | undefined; // A fallback content to let appear when user's browser is not compatible with any of the video formats
 }
 ```
 
@@ -134,8 +137,8 @@ Or
 Yields:
 
 ```html
-<div>
-  <video controls preload="metadata">
+<div data-remark-video-figure>
+  <video controls preload="metadata" width="100%">
     <source src="/videos/sample-video-1.mp4" type="video/mp4">
   </video>
 </div>
@@ -158,7 +161,15 @@ export default defineConfig({
     remarkPlugins: [
       // ...
       remarkDirective,
-      remarkVideo,
+      [
+        remarkVideo,
+        {
+          /* Make sure to add these props at least! */
+          baseUrl: SITE_URL,
+          publicDir: './public',
+          // ...
+        }
+      ],
       // ...
     ]
     // ...
