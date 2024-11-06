@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- the `title` attribute to the container tags
+  - This could be used as an alt text or the likes
+
 ## 0.9.0-beta.0 - 2024-11-06
 ### Added
 - the `width` attribute to `video` tags

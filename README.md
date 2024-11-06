@@ -1,6 +1,6 @@
 # remark-video
 
-A remark plugin to parse video component(s).
+A remark plugin to parse HTML5 video component(s).
 
 ## Features
 
@@ -118,8 +118,6 @@ For more possible patterns and in-depths explanations on the generic syntax(e.g.
 
 ### Syntax
 
-#### card
-
 For example, the following Markdown content:
 
 ```markdown
@@ -143,6 +141,9 @@ Yields:
   </video>
 </div>
 ```
+
+> [!NOTE]
+> You need to create the `public` directory and then add videos to it in advance.
 
 ### Astro
 
