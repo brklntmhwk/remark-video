@@ -102,6 +102,7 @@ At the moment, it takes the following option(s):
 export type Config = {
   baseUrl: string; // e.g., your website's URL
   publicDir: string; // A relative path to your public directory from the current working directory
+  videoContainerTag?: string; // e.g., `div`, `figure`, etc. Defaults to `div`
   videoContainerClass?: string;
 }
 ```
