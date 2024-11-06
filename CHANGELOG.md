@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.9.0-beta.0 - 2024-11-06
 ### Added
-
 - the `width` attribute to `video` tags
   - The value is "100%"
 - the `.ogg` video format compatibility
