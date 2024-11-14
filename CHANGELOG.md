@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - make the `baseUrl` and `publicDir` option optional and prepare default values for them
+- add a demo GIF image to README
 
 ## 0.9.0 - 2024-11-06
 ### Added

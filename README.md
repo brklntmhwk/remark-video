@@ -2,6 +2,8 @@
 
 A remark plugin to parse HTML5 video component(s).
 
+![demo gif](./demo.gif)
+
 ## Features
 
 - Compatible with [the proposed generic syntax](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444/1) for custom directives/plugins in Markdown
@@ -177,7 +179,7 @@ Nothing special.
 
 ## TODO(s)
 
-- [ ] add a demo screenshot of the actual implementation to this page
+- [x] add a demo screenshot of the actual implementation to this page
 
 ## License
 
