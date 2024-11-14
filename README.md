@@ -102,11 +102,11 @@ At the moment, it takes the following option(s):
 
 ```ts
 export type Config = {
-  baseUrl: string; // e.g., your website's URL
-  publicDir: string; // A relative path to your public directory from the current working directory
+  baseUrl?: string; // e.g., your website's URL. Defaults to an empty string
+  publicDir?: string; // A relative path to your public directory from the current working directory. Defaults to "./public"
   videoContainerTag?: string; // e.g., `div`, `figure`, etc. Defaults to `div`
   videoContainerClass?: string;
-  fallbackContent?: Readonly<ElementContent> | null | undefined; // A fallback content to let appear when user's browser is not compatible with any of the video formats
+  fallbackContent?: Readonly<ElementContent> | null | undefined; // A fallback content to let appear when user's browser is not compatible with the HTML5 video tag
 }
 ```
 
@@ -162,15 +162,7 @@ export default defineConfig({
     remarkPlugins: [
       // ...
       remarkDirective,
-      [
-        remarkVideo,
-        {
-          /* Make sure to add these props at least! */
-          baseUrl: SITE_URL,
-          publicDir: './public',
-          // ...
-        }
-      ],
+      remarkVideo,
       // ...
     ]
     // ...
