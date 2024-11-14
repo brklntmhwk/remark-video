@@ -2,7 +2,7 @@
 
 A remark plugin to parse HTML5 video component(s).
 
-![demo gif](./demo.gif)
+![demo gif](./public/demo.gif)
 
 ## Features
 
